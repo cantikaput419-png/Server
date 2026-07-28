@@ -2,93 +2,251 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0.0">
 
 <title>SERVER THAILAND | Platform Game Online Tercepat</title>
-
-<meta name="description" content="SERVER THAILAND menghadirkan platform game online dengan akses cepat, server stabil dan tampilan modern.">
-
-<meta name="keywords" content="SERVER THAILAND, Server Thailand, Server Thailand Indonesia, Server Thailand Resmi, Platform Game Online">
+<meta name="description" content="SERVER THAILAND menghadirkan platform game online dengan akses super cepat, server paling stabil, keamanan terjamin dan tampilan modern elegan.">
+<meta name="keywords" content="SERVER THAILAND, Server Thailand, Server Thailand Indonesia, Server Thailand Resmi, Platform Game Online Terpercaya">
+<meta name="theme-color" content="#050505">
 
 <style>
+:root {
+    --merah: #e00000;
+    --emas-1: #ffef7d;
+    --emas-2: #ffc107;
+    --emas-3: #ff8800;
+    --hitam: #050505;
+    --abu-tua: #121212;
+    --putih: #ffffff;
+    --abu-transparan: rgba(255,255,255,0.12);
+}
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Arial, Helvetica, sans-serif;
 }
 
 body{
-    background:#000;
+    background: var(--hitam);
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
+/* Bagian Utama */
 .hero{
-    position:relative;
-    width:100%;
-    height:100vh;
-    overflow:hidden;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
-.hero img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+/* Latar Belakang */
+.hero .bg-layer{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.03);
+    transition: transform 8s ease-out;
+}
+.hero:has(:hover) .bg-layer{
+    transform: scale(1.08);
 }
 
+/* Lapisan Gradien Lebih Halus & Proporsional */
 .hero::before{
     content:"";
     position:absolute;
     inset:0;
-    background:linear-gradient(to top,rgba(0,0,0,.75),rgba(0,0,0,.15));
+    background: linear-gradient(
+        to top,
+        rgba(5,5,5,0.94) 0%,
+        rgba(5,5,5,0.50) 45%,
+        rgba(5,5,5,0.18) 75%,
+        rgba(5,5,5,0.90) 100%
+    );
+    z-index: 1;
 }
 
+/* Konten Tengah */
+.content-wrap{
+    position: relative;
+    z-index: 3;
+    width: 90%;
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding: 30px 0;
+    animation: masukAtas 1s ease-out forwards;
+    opacity: 0;
+}
+
+.judul-utama{
+    font-size: clamp(2.8rem, 9vw, 4.8rem);
+    font-weight: 800;
+    text-align: center;
+    background: linear-gradient(90deg, var(--emas-1), var(--emas-2), var(--emas-3));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 55px rgba(255,193,7,0.45);
+    line-height: 1.05;
+    letter-spacing: 2px;
+}
+
+.deskripsi{
+    font-size: clamp(1rem, 3vw, 1.35rem);
+    color: rgba(255,255,255,0.85);
+    text-align: center;
+    line-height: 1.6;
+    max-width: 620px;
+}
+
+/* === BAGIAN INFORMASI MPOID === */
+.info-mpoid{
+    width: 100%;
+    background: rgba(18,18,18,0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--abu-transparan);
+    border-radius: 18px;
+    padding: 24px 28px;
+    margin: 8px 0;
+}
+
+.judul-info{
+    text-align: center;
+    font-size: clamp(1.25rem, 4vw, 1.5rem);
+    font-weight: 700;
+    color: var(--emas-2);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,193,7,0.25);
+    letter-spacing: 1px;
+}
+
+.daftar-info{
+    display: grid;
+    gap: 14px;
+}
+
+.item-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-size: clamp(0.98rem, 3vw, 1.1rem);
+}
+.item-info:last-child{border-bottom: none;}
+
+.label-info{
+    font-weight: 600;
+    color: rgba(255,255,255,0.9);
+}
+
+.nilai-info{
+    font-weight: 700;
+    color: var(--emas-1);
+    text-align: right;
+}
+/* ================================= */
+
+/* Area Tombol Lebih Seimbang */
 .button-area{
-    position:absolute;
-    bottom:40px;
-    left:50%;
-    transform:translateX(-50%);
     display:flex;
-    gap:20px;
-    z-index:2;
+    gap: 28px;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 8px;
 }
 
 .btn{
+    flex: 1 1 220px;
+    max-width: 280px;
     text-decoration:none;
-    color:#fff;
-    padding:16px 40px;
-    border-radius:50px;
-    font-size:20px;
-    font-weight:bold;
-    transition:.3s;
+    color: var(--putih);
+    padding: 18px 24px;
+    border-radius: 60px;
+    font-size: clamp(1.05rem, 3vw, 1.25rem);
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+.btn::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(255,255,255,0.18), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
 .login{
-    background:#d60000;
+    background: linear-gradient(180deg, #ff2222, var(--merah));
+    box-shadow: 0 8px 25px rgba(224,0,0,0.45);
+}
+.login:hover{
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 14px 35px rgba(224,0,0,0.55);
+    border-color: #ff5555;
 }
 
 .register{
-    background:linear-gradient(180deg,#ffd700,#ff9800);
-    color:#111;
+    background: linear-gradient(180deg, var(--emas-1), var(--emas-2), var(--emas-3));
+    color: #1a1a1a;
+    box-shadow: 0 8px 25px rgba(255,193,7,0.45);
+}
+.register:hover{
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 14px 35px rgba(255,193,7,0.55);
+    border-color: #fff1a8;
 }
 
-.btn:hover{
-    transform:scale(1.05);
+.btn:hover::before{opacity: 1;}
+
+/* Informasi Bawah */
+.info-bawah{
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    text-align: center;
+    color: rgba(255,255,255,0.55);
+    font-size: 0.88rem;
+    line-height: 1.5;
+    width: 90%;
 }
 
+/* Animasi */
+@keyframes masukAtas {
+    0% {transform: translateY(50px); opacity: 0;}
+    100% {transform: translateY(0); opacity: 1;}
+}
+
+/* Responsif */
 @media(max-width:768px){
-
-.button-area{
-    width:90%;
-    flex-direction:column;
-    bottom:25px;
-}
-
-.btn{
-    text-align:center;
-    font-size:18px;
-    padding:15px;
-}
-
+    .content-wrap{gap: 28px;}
+    .info-mpoid{padding: 20px 18px;}
+    .button-area{gap: 20px;}
+    .btn{padding: 16px 20px;}
+    .info-bawah{bottom: 16px; font-size: 0.8rem;}
+    .item-info{flex-direction: column; gap: 4px; text-align: center;}
+    .nilai-info{text-align: center;}
 }
 </style>
 
@@ -96,14 +254,46 @@ body{
 <body>
 
 <section class="hero">
+    <img src="banner.jpg" alt="SERVER THAILAND" class="bg-layer">
 
-<img src="banner.jpg" alt="SERVER THAILAND">
+    <div class="content-wrap">
+        <h1 class="judul-utama">SERVER THAILAND</h1>
+        <p class="deskripsi">Platform Game Online Tercepat & Paling Stabil. Nikmati pengalaman bermain tanpa gangguan dengan keamanan terjamin sepenuhnya.</p>
+        
+        <!-- BAGIAN INFORMASI YANG DITAMBAHKAN -->
+        <div class="info-mpoid">
+            <h2 class="judul-info">INFORMASI GAMES MPOID</h2>
+            <div class="daftar-info">
+                <div class="item-info">
+                    <span class="label-info">Min. Deposit</span>
+                    <span class="nilai-info">Rp 20.000</span>
+                </div>
+                <div class="item-info">
+                    <span class="label-info">Min. Withdraw</span>
+                    <span class="nilai-info">Rp 50.000</span>
+                </div>
+                <div class="item-info">
+                    <span class="label-info">Permainan</span>
+                    <span class="nilai-info">Slot, Casino, Sportsbook</span>
+                </div>
+                <div class="item-info">
+                    <span class="label-info">Menu Transaksi</span>
+                    <span class="nilai-info">Bank, E-Wallet & QRIS</span>
+                </div>
+            </div>
+        </div>
+        <!-- AKHIR BAGIAN INFORMASI -->
+        
+        <div class="button-area">
+            <!-- Catatan: tautan berikut saat ini tidak dapat diakses / tautan mati -->
+            <a href="https://example.com/login" class="btn login">MASUK / LOGIN</a>
+            <a href="https://example.com/daftar" class="btn register">DAFTAR BARU</a>
+        </div>
+    </div>
 
-<div class="button-area">
-    <a href="https://example.com/login" class="btn login">LOGIN</a>
-    <a href="https://example.com/daftar" class="btn register">DAFTAR</a>
-</div>
-
+    <div class="info-bawah">
+        © 2026 Server Thailand Resmi. Semua Hak Dilindungi.
+    </div>
 </section>
 
 </body>
